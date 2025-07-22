@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #FEFEFE; /* white */
+    --color-foreground: #2D3748; /* gray-800 */
+    --color-border: #E2E8F0; /* gray-200 */
+    --color-input: #F8F9FA; /* gray-50 */
+    --color-ring: #8B2635; /* burgundy */
+    
+    /* Card Colors */
+    --color-card: #F8F9FA; /* gray-50 */
+    --color-card-foreground: #2D3748; /* gray-800 */
+    
+    /* Popover Colors */
+    --color-popover: #FEFEFE; /* white */
+    --color-popover-foreground: #2D3748; /* gray-800 */
+    
+    /* Muted Colors */
+    --color-muted: #F8F9FA; /* gray-50 */
+    --color-muted-foreground: #718096; /* gray-500 */
+    
+    /* Primary Colors */
+    --color-primary: #8B2635; /* burgundy */
+    --color-primary-foreground: #FEFEFE; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #D4A574; /* gold */
+    --color-secondary-foreground: #2D3748; /* gray-800 */
+    
+    /* Accent Colors */
+    --color-accent: #E8B4A0; /* rose-gold */
+    --color-accent-foreground: #2D3748; /* gray-800 */
+    
+    /* Success Colors */
+    --color-success: #38A169; /* green-600 */
+    --color-success-foreground: #FEFEFE; /* white */
+    
+    /* Warning Colors */
+    --color-warning: #D69E2E; /* yellow-600 */
+    --color-warning-foreground: #2D3748; /* gray-800 */
+    
+    /* Error Colors */
+    --color-error: #E53E3E; /* red-600 */
+    --color-error-foreground: #FEFEFE; /* white */
+    
+    /* Destructive Colors */
+    --color-destructive: #E53E3E; /* red-600 */
+    --color-destructive-foreground: #FEFEFE; /* white */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+}
+
+@layer components {
+  /* Glassmorphism effect */
+  .glass-card {
+    backdrop-filter: blur(10px);
+    background: rgba(248, 249, 250, 0.95);
+    border: 1px solid rgba(226, 232, 240, 0.2);
+  }
+
+  /* Elevation shadows with warm undertones */
+  .shadow-elevation-1 {
+    box-shadow: 0 1px 3px rgba(139, 38, 53, 0.1);
+  }
+
+  .shadow-elevation-2 {
+    box-shadow: 0 4px 12px rgba(139, 38, 53, 0.15);
+  }
+
+  .shadow-elevation-3 {
+    box-shadow: 0 8px 24px rgba(139, 38, 53, 0.2);
+  }
+
+  /* Shimmer animation for loading states */
+  .shimmer {
+    background: linear-gradient(90deg, 
+      rgba(248, 249, 250, 0.2) 25%, 
+      rgba(226, 232, 240, 0.4) 50%, 
+      rgba(248, 249, 250, 0.2) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-gentle {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-elaborate {
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
